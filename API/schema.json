@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "required": ["policyHeader", "insuredParty", "vehicles"],
+  "properties": {
+    "policyHeader": {
+      "type": "object",
+      "required": ["policyNumber", "status", "totalPremium"],
+      "properties": {
+        "policyNumber": { "type": "string" },
+        "status": { "type": "string" },
+        "totalPremium": { "type": "number" }
+      }
+    },
+    "insuredParty": {
+      "type": "object",
+      "required": ["firstName", "lastName"],
+      "properties": {
+        "firstName": { "type": "string" },
+        "lastName": { "type": "string" }
+      }
+    },
+    "vehicles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["vehicleId", "make", "model"],
+        "properties": {
+          "vehicleId": { "type": "string" },
+          "make": { "type": "string" },
+          "model": { "type": "string" },
+          "year": { "type": "integer" },
+          "coverages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["type", "limit"],
+              "properties": {
+                "type": { "type": "string" },
+                "limit": { "type": "number" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
