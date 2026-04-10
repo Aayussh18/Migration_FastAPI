@@ -1,3 +1,4 @@
 schema_path: schema.json
 xml_root: root
 attr_type: false
+Csv_to_xml_output_path: csv_to_xml

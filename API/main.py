@@ -1,10 +1,14 @@
 from fastapi import FastAPI,HTTPException
 from fastapi.responses import Response
+from api.csv_api import router as csv_router
 from validator import validate_json
 from converter import convert_json_to_xml
 from dicttoxml import dicttoxml
 
 app = FastAPI()
+
+#Mount CSV API router
+app.include_router(csv_router)
 
 @app.post("/json-to-xml")
 async def json_to_xml(data: dict):
